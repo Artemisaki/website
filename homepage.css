@@ -1,0 +1,9 @@
+/* BEGIN CODE HERE */
+.image{
+    width: 250px;
+    height: 58px;
+    background-image: url("logo.png");
+    background-size: cover;
+    background-position: center;
+}
+/* END CODE HERE */
