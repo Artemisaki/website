@@ -32,6 +32,30 @@
     vertical-align: middle;
     display: table-cell;
     height:100%;
+
+}
+
+
+.button1 {
+    background-color: dodgerblue;
+    vertical-align: middle;
+    display: table-cell;
+    color: white;
+    border-radius: 8px;
+}
+
+.button2 {
+
+    vertical-align: middle;
+    display: table-cell;
     color: blue;
 }
+
+div, iframe {
+    width: 1200px;
+    margin: auto;
+    background-color: bisque;
+    display:block;
+}
+
 /* END CODE HERE */
