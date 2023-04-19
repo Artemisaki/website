@@ -1,0 +1,56 @@
+/* BEGIN CODE HERE */
+.image{
+    height:58px;
+    width: 250px;
+    float: left;
+    display:table;
+    vertical-align: middle;
+    /*how to put the image in the middle*/
+}
+
+.header{
+    width: 100%;
+    height: 150px;
+    display: block;
+    background-color: aquamarine;
+}
+
+.navigation{
+    float: right;
+    height:100%;
+}
+
+.navigation a{
+    height:100%;
+    display: table;
+    float:left;
+    padding: 0px 20px;
+}
+
+.navigation a li{
+    vertical-align: middle;
+    display: table-cell;
+    height:100%;
+}
+
+.button1 {
+    background-color: dodgerblue;
+    vertical-align: middle;
+    display: table-cell;
+    color: white;
+    border-radius: 8px;
+}
+
+.button2 {
+    vertical-align: middle;
+    display: table-cell;
+    color: blue;
+}
+
+div, iframe {
+    width: 1200px;
+    margin: auto;
+    background-color: bisque;
+    display:block;
+}
+/* END CODE HERE */
