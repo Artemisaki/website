@@ -51,6 +51,8 @@ div, iframe {
     width: 100%;
     background-color: bisque;
     display:block;
+    padding-left: 50px;
+    padding-right: 30px;
 }
 .footer{
     background: cadetblue;
