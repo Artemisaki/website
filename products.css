@@ -26,7 +26,6 @@
     padding: 25% 20px;
 }
 
-
 .button1 {
     vertical-align: middle;
     display: table-cell;
@@ -46,6 +45,12 @@ div, iframe {
     background: cadetblue;
     height: 100px;
     color: bisque;
+}
+li {
+    float: left;
+    margin: 0 20px;
+    vertical-align: center;
+
 }
 
 /* END CODE HERE */
