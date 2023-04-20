@@ -48,9 +48,14 @@
 }
 
 div, iframe {
-    width: 1200px;
-    margin: auto;
+    width: 100%;
     background-color: bisque;
     display:block;
 }
+.footer{
+    background: cadetblue;
+    height: 100px;
+    color: bisque;
+}
+
 /* END CODE HERE */
