@@ -1,0 +1,39 @@
+table{
+    border-collapse: collapse;
+    width:1000px;
+    height:40px;
+}
+table,th, td{
+    border:1px solid gray;
+}
+.search-form{
+    width:400px;
+    position: relative;
+    border:1px solid gray;
+    border-radius: 6px;
+    color: cadetblue;
+}
+.search-form input{
+    border:none;
+    width: 100%;
+    padding:0 20px;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+    color: #333;
+    height: 40px;
+    border-radius: 6px;
+}
+
+.search-form button{
+    width: 100px;
+    background-color: dodgerblue;
+    right:0;
+    top:0;
+    position: absolute;
+    color: #333;
+    border:none;
+    height: 40px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
