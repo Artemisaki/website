@@ -4,7 +4,19 @@
     height:400px;
 }
 
-.row1{
+.text1{
+    float: right;
+    padding:50% 0;
+}
+.text2{
+    padding: 25% 0;
+}
+p{
+    padding: 10px;
+}
+
+.row1
+{
     float: right;
     height:200px;
     width:300px;
@@ -13,7 +25,6 @@
     float: left;
     height:200px;
     width:300px;
-
 }
 .row:after {
     display: table;
@@ -27,16 +38,5 @@ table, td {
 th{
     width:300px;
     height:200px;
-}
-
-.text1{
-    float: right;
-    padding:50% 0;
-}
-.text2{
-    padding: 25% 0;
-}
-p{
-    padding: 10px;
 }
 

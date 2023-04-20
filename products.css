@@ -15,6 +15,7 @@
     background-color: aquamarine;
 }
 
+
 .navigation{
     float: right;
     height:100%;
@@ -24,27 +25,22 @@
     height:100%;
     display: table;
     float:left;
-    padding: 0px 20px;
-}
-
-.navigation a li{
-    vertical-align: middle;
-    display: table-cell;
-    height:100%;
+    padding: 25% 20px;
 }
 
 .button1 {
-    background-color: dodgerblue;
+    background-color: white;
     vertical-align: middle;
     display: table-cell;
-    color: white;
-    border-radius: 8px;
+    color: blue;
 }
 
 .button2 {
     vertical-align: middle;
     display: table-cell;
-    color: blue;
+    color: white;
+    background-color: dodgerblue;
+    border-radius: 8px;
 }
 
 div, iframe {

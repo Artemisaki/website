@@ -24,14 +24,9 @@
     height:100%;
     display: table;
     float:left;
-    padding: 0px 20px;
+    padding: 25% 20px;
 }
 
-.navigation a li{
-    vertical-align: middle;
-    display: table-cell;
-    height:100%;
-}
 
 .button1 {
     background-color: dodgerblue;
