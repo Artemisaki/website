@@ -3,19 +3,19 @@
     width: 300px;
     height:400px;
 }
-.column3 {
-    float: left;
-    width: 300px;
-    height:400px;
-}
-.column4 {
-    float: left;
-    width: 300px;
-    height:400px;
-}
 
+.row1{
+    float: right;
+    height:200px;
+    width:300px;
+}
+.row2{
+    float: left;
+    height:200px;
+    width:300px;
+
+}
 .row:after {
-    content: "";
     display: table;
     clear: both;
 }
@@ -28,3 +28,15 @@ th{
     width:300px;
     height:200px;
 }
+
+.text1{
+    float: right;
+    padding:50% 0;
+}
+.text2{
+    padding: 25% 0;
+}
+p{
+    padding: 10px;
+}
+
