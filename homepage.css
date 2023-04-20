@@ -35,11 +35,6 @@
     color: white;
     border-radius: 8px;
 }
-.button2 {
-    vertical-align: middle;
-    display: table-cell;
-    color: blue;
-}
 
 div, iframe {
     width: 100%;

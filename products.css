@@ -26,14 +26,8 @@
     padding: 25% 20px;
 }
 
-.button1 {
-    background-color: white;
-    vertical-align: middle;
-    display: table-cell;
-    color: blue;
-}
 
-.button2 {
+.button1 {
     vertical-align: middle;
     display: table-cell;
     color: white;
@@ -45,6 +39,8 @@ div, iframe {
     width: 100%;
     background-color: bisque;
     display:block;
+    padding-left: 50px;
+    padding-right: 30px;
 }
 .footer{
     background: cadetblue;
