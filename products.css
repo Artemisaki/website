@@ -33,6 +33,14 @@
     border-radius: 8px;
     border:none;
 }
+.button2 {
+    vertical-align: middle;
+    display: table-cell;
+    color: dodgerblue;
+    background-color: transparent;
+    border-radius: 8px;
+    border:none;
+}
 
 div, iframe {
     width: 100%;
