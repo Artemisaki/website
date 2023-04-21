@@ -2,9 +2,11 @@
 .image{
     height:58px;
     width: 250px;
-    float: left;
     display:table;
     vertical-align: middle;
+    position: absolute;
+    top:6%;
+    left:10px;
     /*how to put the image in the middle*/
 }
 

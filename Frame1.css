@@ -1,5 +1,24 @@
-.column {
-    float: left;
+.column1 {
+    position:absolute;
+    right:11%;
     width: 600px;
     height:400px;
+    top:5%;
+}
+.column {
+    position:absolute;
+    left:0;
+    width: 600px;
+    height:400px;
+}
+
+h2{
+    font-size:50px;
+    padding-top:15%;
+    padding-left: 15px;
+
+}
+p{
+    font-size:25px;
+    padding-left: 15px;
 }

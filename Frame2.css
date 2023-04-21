@@ -2,17 +2,30 @@
     float: left;
     width: 300px;
     height:400px;
+    background-color: blueviolet;
 }
 .text1{
     float: right;
     padding:50% 0;
+
 }
 .text2{
     padding: 25% 0;
 }
-p{
-    padding: 10px;
+h2{
+    font-size:50px;
+    padding-top:20%;
 }
+p{
+    font-size:22px;
+}
+
+ul{
+   font-size:22px;
+    text-align: left;
+    padding-top:33.3%;
+}
+
 .row1
 {
     float: right;
@@ -31,10 +44,6 @@ p{
 table, td {
     border: 1px solid;
     width:1200px;
-    height:200px;
-}
-th{
-    width:300px;
     height:200px;
 }
 
