@@ -3,10 +3,10 @@
     height:58px;
     width: 250px;
     display:table;
-    vertical-align: middle;
+    vertical-align: center;
     position: absolute;
     top:6%;
-    left:10px;
+    left:10%;
     /*how to put the image in the middle*/
 }
 
@@ -16,16 +16,7 @@
     display: block;
 }
 
-.navigation{
-    float: right;
-    height:100%;
-}
 
-.navigation a{
-    display: table;
-    float:left;
-    padding: 25% 20px;
-}
 
 .button1 {
     background-color: dodgerblue;
@@ -34,6 +25,11 @@
     color: white;
     border-radius: 8px;
     border:none;
+    float:right;
+    position: absolute;
+    right: 280px;
+    top:50px;
+
 }
 
 .button2 {
@@ -42,17 +38,119 @@
     display: table-cell;
     color: dodgerblue;
     border:none;
+    float:right;
+    position: absolute;
+    right: 180px;
+    top:50px;
 }
 
-div, iframe {
-    width: 100%;
-    display:block;
-    padding-left: 50px;
-    padding-right: 30px;
+.myContainer{
+    width:1200px;
+    height:400px;
+    position:absolute;
+    left:10%;
+}
+.myColumn1{
+    width:600px;
+    height: 400px;
+}
+.Heading1{
+    position:absolute;
+    left:10px;
+}
+.heading1{
+    position:absolute;
+    top:50px;
+    left:10px;
+}
+.image1{
+    float: right;
+    position: absolute;
+    width:600px;
+    height:400px;
+    right:0;
+}
+
+.myContainer2{
+    width:1200px;
+    height:400px;
+    position:absolute;
+    left:10%;
+    top:570px;
+}
+.myColumn2{
+    width:300px;
+    height: 400px;
+    position:absolute;
+}
+
+.myColumn3{
+    width:300px;
+    height: 400px;
+    position:absolute;
+    left:300px
+}
+.myColumn4{
+    width:300px;
+    height: 400px;
+    position:absolute;
+
+    left:600px;
+}
+.subRow4{
+    position:absolute;
+    width:300px;
+    height:200px;
+}
+.myColumn5{
+    width:300px;
+    height: 400px;
+    left:900px;
+    position:absolute;
+}
+.subRow5{
+    position:absolute;
+    width:300px;
+    height:200px;
+}
+.image2{
+    width:300px;
+    height:200px;
+    position:absolute;
+}
+.image3{
+    width:300px;
+    height:200px;
+    position:absolute;
+    bottom:0;
+}
+.subHeading1{
+    position:absolute;
+    bottom:0;
+    right:10px;
+}
+.subHeading2{
+    position:absolute;
+    bottom:80px;
+    left:20px;
+}
+iframe{
+    position:absolute;
+    width:1200px;
+    height:600px;
+    top:1000px;
+    left:150px;
 }
 .footer{
-    background: cadetblue;
+    position: absolute;
+    top:1700px;
+    width:100%;
     height: 100px;
+    background-color:lightgrey;
 }
-
+.footertext{
+    position:absolute;
+    left:25%;
+    top:40px;
+}
 /* END CODE HERE */
