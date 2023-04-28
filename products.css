@@ -3,10 +3,10 @@
     height:58px;
     width: 250px;
     display:table;
-    vertical-align: middle;
+    vertical-align: center;
     position: absolute;
     top:6%;
-    left:10px;
+    left:10%;
     /*how to put the image in the middle*/
 }
 
@@ -15,50 +15,37 @@
     height: 150px;
     display: block;
 }
-.navigation{
-    float: right;
-    height:100%;
-}
-
-.navigation a{
-    height:100%;
-    display: table;
-    float:left;
-    padding: 25% 20px;
-}
 
 .button1 {
-    vertical-align: middle;
-    display: table-cell;
-    color: white;
-    background-color: dodgerblue;
-    border-radius: 8px;
-    border:none;
-}
-.button2 {
+    background-color: transparent;
     vertical-align: middle;
     display: table-cell;
     color: dodgerblue;
-    background-color: transparent;
-    border-radius: 8px;
     border:none;
+    float:right;
+    position: absolute;
+    right: 280px;
+    top:50px;
 }
 
-div, iframe {
-    width: 100%;
-    display:block;
-    padding-left: 50px;
-    padding-right: 30px;
+.button2 {
+    background-color: dodgerblue;
+    color: white;
+    border-radius: 8px;
+    vertical-align: middle;
+    display: table-cell;
+    border:none;
+    float:right;
+    position: absolute;
+    right: 180px;
+    top:50px;
 }
-.footer{
-    background: cadetblue;
-    height: 100px;
-}
-li {
-    float: left;
-    margin: 0 20px;
-    vertical-align: center;
+.myContainer{
+    width:1200px;
+    height:400px;
+    position:absolute;
+    left:10%;
+    background-color: dodgerblue;
 
 }
-
 /* END CODE HERE */
