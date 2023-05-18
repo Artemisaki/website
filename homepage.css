@@ -14,9 +14,8 @@
     width: 100%;
     height: 150px;
     display: block;
+    border-bottom: 1px solid lightgray;
 }
-
-
 
 .button1 {
     background-color: dodgerblue;
@@ -29,7 +28,6 @@
     position: absolute;
     right: 280px;
     top:50px;
-
 }
 
 .button2 {
@@ -60,7 +58,7 @@
 }
 .heading1{
     position:absolute;
-    top:50px;
+    top:70px;
     left:10px;
 }
 .image1{
@@ -80,7 +78,8 @@
 }
 .myColumn2{
     width:300px;
-    height: 400px;
+    height:400px;
+    top:25px;
     position:absolute;
 }
 
@@ -146,7 +145,7 @@ iframe{
     top:1700px;
     width:100%;
     height: 100px;
-    background-color:lightgrey;
+    border-top: 1px solid black;
 }
 .footertext{
     position:absolute;

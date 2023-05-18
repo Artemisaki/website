@@ -11,24 +11,75 @@
     <!-- BEGIN CODE HERE -->
     <div class="header">
       <img class="image" src="logo.png">
-      <button class="button1">Home</button>
-      <button onclick="window.location.href ='Products.html';" class="button2">Products</button>
+      <button onclick="window.location.href ='Homepage.html';" class="button1">Home</button>
+      <button class="button2">Products</button>
+
     </div>
     <main class="myMain">
-      <div class="myContainer">
-        <div class="myRow">
-
-
+      <div class="myFrame1">
+        <div class="search-container">
+          <p>
+            <span class="nowrap">Search a product</span>
+          </p>
+          <form>
+            <div>
+              <input class="search-bar" type="search">
+              <button class="search-button" type="submit">Search</button>
+            </div>
+          </form>
+        </div>
+        <h5 class="Results"> Results</h5>
+        <table class="Results-table">
+          <tr>
+            <th> ID</th>
+            <th>Name</th>
+            <th>Production Year</th>
+            <th>Price</th>
+            <th>Color</th>
+            <th>Size</th>
+          </tr>
+        </table>
+      </div>
+      <div class="myFrame2">
+        <h5 class="Add"> Add a product</h5>
+        <form class="forms">
+          <div>
+            <label class="l1" for="name">Name</label>
+            <input class="i1" type="text" id="name">
           </div>
-        </div>
+          <br>
 
-      <div class="myContainer2">
-        <div class="myRow2">
+          <div>
+            <label class="l2" for="prod">Production Year</label>
+            <input class="i2" type="text" id="prod">
+          </div>
+          <br>
 
+          <div>
+            <label class="l3" for="price">Price</label>
+            <input class="i3" type="text" id="price">
+          </div>
+          <br>
 
-        </div>
+          <div>
+            <label class="l4" for="col">Color</label>
+            <input class="i4" type="text" id="col">
+          </div>
+          <br>
+
+          <div>
+            <label class="l5" for="size">Size</label>
+            <input class="i5" type="text" id="size">
+          </div>
+        </form>
+        <button class="save-button">Save</button>
+
       </div>
 
+
+      <div class="footer">
+        <p class="footer-text"> Λαμπρινή Πολιτίδου-3925&nbsp;&nbsp;&nbsp;&nbsp;Φωτεινή-Μαρία Τσούγα-3955&nbsp;&nbsp;&nbsp;&nbsp;Αρτεμισία Μαργαριτούλια- 3981&nbsp;&nbsp;&nbsp;&nbsp;Θωμάς Ντομούζης-4056</p>
+      </div>
     </main>
 
 
