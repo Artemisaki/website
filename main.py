@@ -2,7 +2,13 @@
 import json
 from difflib import SequenceMatcher
 import math
-import re
+import selenium
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 from collections import Counter
 
 
@@ -21,8 +27,8 @@ schema = {
     "name":str,
     "productionYear":int,
     "price":float,
-    "color":str,
-    "size":str
+    "color":int,
+    "size":int
 }
 # END CODE HERE
 
@@ -68,21 +74,21 @@ def add_product():
     # BEGIN CODE HERE
     new_product = request.json
     print(new_product)
-    if new_product["color"] == "red":
-        new_product["color"] = 1
-    elif new_product["color"] == "yellow":
-        new_product["color"] = 2
-    else:
-        new_product["color"] = 3
-
-    if new_product["size"] == "small":
-        new_product["size"] = 1
-    elif new_product["size"] == "medium":
-        new_product["size"] = 2
-    elif new_product["size"] == "large":
-        new_product["size"] = 3
-    else:
-        new_product["size"] = 4
+    # if new_product["color"] == "red":
+    #     new_product["color"] = 1
+    # elif new_product["color"] == "yellow":
+    #     new_product["color"] = 2
+    # else:
+    #     new_product["color"] = 3
+    #
+    # if new_product["size"] == "small":
+    #     new_product["size"] = 1
+    # elif new_product["size"] == "medium":
+    #     new_product["size"] = 2
+    # elif new_product["size"] == "large":
+    #     new_product["size"] = 3
+    # else:
+    #     new_product["size"] = 4
 
     exists = mongo.db.products.find_one({"name": new_product["name"]})
     if exists is None:
@@ -98,60 +104,78 @@ def add_product():
 @app.route("/content-based-filtering", methods=["POST"])
 def content_based_filtering():
     # BEGIN CODE HERE
-    WORD = re.compile(r"\w+")
-    vector1 = request.args.get("name")
+    new_product = request.json
+    thistuple = (new_product["productionYear"], new_product["price"], new_product["color"], new_product["size"])
+   # print(thistuple)
     list1 = []
+    thisdistance = math.sqrt(thistuple[0]*thistuple[0] + thistuple[1]*thistuple[1] + thistuple[2]*thistuple[2] + thistuple[3]*thistuple[3])
 
     for x in mongo.db.products.find():
+        tuple2 = (x["productionYear"], x["price"], x["color"], x["size"])
+        multi2 = sum(p*q for p, q in zip(thistuple, tuple2))
+        distance2 = math.sqrt(tuple2[0]*tuple2[0] + tuple2[1]*tuple2[1] + tuple2[2]*tuple2[2] + tuple2[3]*tuple2[3])
+        if multi2/(thisdistance*distance2) >= 0.7:
+            list1.append(x["name"])
 
-        #words = WORD.findall(str(x['name']))#παιρνουμε το value του name
-        #print("word from dict: ", str(x['name']))
-        sim1 = -1
-        words = WORD.findall(str(x['name']))
-        for y in words:
-
-            sim2 = SequenceMatcher(None, vector1, y).ratio()
-            if sim2 > sim1:
-                sim1 = sim2
-
-        if sim1 >= 0.7:
-            list1.append(x)
-        print("..................................................")
-        print("Similarity between ", vector1, "and", str(x['name']), "two strings is: " + str(sim1))
-
-    print(*list1, sep="\n")
-        #sim = SequenceMatcher(None, vector1, str(x['name'])).ratio()
-
-        #print("Similarity between ",vector1, "and",str(x['name']),"two strings is: " + str(sim))
-        #print("words: ", words)
-        #vector2 = Counter(words)#και το κανουμε text_to_vector2
-        #print("value2 to value: ", vector2,"/n")
-
-        #words = WORD.findall(str(vector1))#παιρνουμε το name
-        #vector1 = Counter(words)#και το κανουμε text_to_vector1
-        #print("words: ", words)
-        #print("value 1: ", vector1)
-        #print("vector 1: ", vector1)
-        #intersection = set(vector1.keys()) & set(vector2.keys())
-        #numerator = sum([vector1[x] * vector2[x] for x in intersection])
-
-        #sum1 = sum([vector1[x] ** 2 for x in list(vector1.keys())])
-        #sum2 = sum([vector2[x] ** 2 for x in list(vector2.keys())])
-        #denominator = math.sqrt(sum1) * math.sqrt(sum2)
-
-        #if not denominator:
-           # cosine = 0.0
-        #else:
-        #cosine = float(numerator) / denominator
-
-        #print(cosine)
-
-    return ""
+    return list1
     # END CODE HERE
 
 
 @app.route("/crawler", methods=["GET"])
 def crawler():
     # BEGIN CODE HERE
-    return ""
+
+    semester = request.args.get("semester1")
+    print(semester)
+    try:
+        url = "https://qa.auth.gr/el/x/studyguide/600000438/current"
+        options = Options()
+        options.headless = True
+        driver = webdriver.Chrome(options=options)
+        driver.get(url)
+        #
+        # if semester == "1":
+        #     html = str((driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div/div/div/div[2]/table[1]/tbody")).text)
+        # elif semester == "2":
+        #     html = str((driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div/div/div/div[2]/table[2]/tbody")).text)
+        # elif semester == "3":
+        #     html = str(
+        #         (driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div/div/div/div[2]/table[3]/tbody")).text)
+        # elif semester == "4":
+        #     html = str(
+        #         (driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div/div/div/div[2]/table[4]/tbody")).text)
+        # elif semester == "5":
+        #     html = str(
+        #         (driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div/div/div/div[2]/table[5]/tbody")).text)
+        # elif semester == "6":
+        #     html = str(
+        #         (driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div/div/div/div[2]/table[6]/tbody")).text)
+        # elif semester == "7":
+        #     html = str(
+        #         (driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div/div/div/div[2]/table[7]/tbody")).text)
+        # elif semester == "8":
+        #     html = str(
+        #         (driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div/div/div/div/div[2]/table[8]/tbody")).text)
+        str2 = "/html/body/div[2]/div[1]/div/div/div/div/div[2]/table["+semester+"]/tbody"
+        print(str2)
+        html = str((driver.find_element(By.XPATH, str2)).text)
+        html1 = html.split()
+        string1 = ""
+        subjects = []
+        for x in html1:
+            if len(x) > 1 and not("-" in x) and x != "ΥΚΕ":
+                if string1 == "":
+                    string1 = x
+                else:
+                    string1 = string1 + " " + x
+            else:
+                if string1 != "":
+                    subjects.append(string1)
+                string1 = ""
+        print(subjects)
+
+    except Exception as e:
+        print("bad request")
+
+    return subjects
     # END CODE HERE
