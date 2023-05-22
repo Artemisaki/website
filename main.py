@@ -31,7 +31,7 @@ CORS(app)
 mongo = PyMongo(app)
 mongo.db.products.create_index([("name", TEXT)])
 
-
+@
 
 @app.route("/search", methods=["GET"])
 def search():
