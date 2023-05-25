@@ -9,7 +9,7 @@ from operator import itemgetter
 from urllib import request
 from flask import request
 
-from flask import Flask
+from flask import Flask, render_template
 from flask_pymongo import PyMongo
 from flask_cors import CORS
 from pymongo import TEXT
@@ -34,6 +34,18 @@ mongo.db.products.create_index([("name", TEXT)])
 
 # flask --app app --debug run
 
+
+@app.route('/')
+def index():
+    return render_template('products.html')
+
+
+# if __name__ == '__app__':
+#     app.run(
+#         host='127.0.0.1',
+#         port=27017,
+#         debug=True
+#     )
 @app.route("/search", methods=["GET"])
 def search():
     # BEGIN CODE HERE
@@ -55,7 +67,11 @@ def add_product():
 
 
     # BEGIN CODE HERE
-    new_product = request.json
+    pass
+    # if request.method == "POST":
+    # print(request.form)
+    print("lll")
+    new_product = request.form
     print(new_product)
     exists = mongo.db.products.find_one({"name": new_product["name"]})
     if exists is None:
