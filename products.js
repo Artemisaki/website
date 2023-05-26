@@ -11,15 +11,21 @@ searchButtonOnClick = () => {
     // END CODE HERE
 }
 
-productFormOnSubmit = () => {
+productFormOnSubmit = (event) => {
     // BEGIN CODE HERE
-
-    console.log("it works")
-    $.ajax({
-      type: "POST",
-      url: "/add-product",
-      data:{"ID":"1400", "name":"Labrini Piiol", "productionYear":"2000", "price":"600", "color":"2", "size":"2"
-          }
-    })
+    console.log("here")
+    var xml = new XMLHttpRequest();
+    xml.open('POST',"/app.py",true);
+    xml.setRequestHeader("Content-type","application/json");
+    var dataReply = this.responseText //αυτό που παίρνουμε
+    xml.send(productFormOnSubmit)
+    dataSend = JSON.stringify({ // αυτο που στελνουμε
+    'name' : document.getElementById("fname").value ,
+    'productionYear' : document.getElementById("fyear").value,
+    'price' : document.getElementById("fprice").value,
+    'color' : document.getElementById("fcolor").value,
+    'size' : document.getElementById("fsize").value
+    });
+    console.log(dataSend)
     // END CODE HERE
 }

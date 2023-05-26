@@ -7,9 +7,9 @@ from selenium.webdriver.common.by import By
 
 from operator import itemgetter
 from urllib import request
-from flask import request
+from flask import request, jsonify
 
-from flask import Flask, render_template
+from flask import Flask
 from flask_pymongo import PyMongo
 from flask_cors import CORS
 from pymongo import TEXT
@@ -34,18 +34,6 @@ mongo.db.products.create_index([("name", TEXT)])
 
 # flask --app app --debug run
 
-
-@app.route('/')
-def index():
-    return render_template('products.html')
-
-
-# if __name__ == '__app__':
-#     app.run(
-#         host='127.0.0.1',
-#         port=27017,
-#         debug=True
-#     )
 @app.route("/search", methods=["GET"])
 def search():
     # BEGIN CODE HERE
@@ -65,21 +53,16 @@ def search():
 @app.route("/add-product", methods=["POST"])
 def add_product():
 
-
-    # BEGIN CODE HERE
     pass
-    # if request.method == "POST":
-    # print(request.form)
-    print("lll")
-    new_product = request.form
+    # BEGIN CODE HERE
+    new_product = request.get_json(force=True)
     print(new_product)
     exists = mongo.db.products.find_one({"name": new_product["name"]})
     if exists is None:
         mongo.db.products.insert_one(new_product)
-        return "not exists, Addition made"
     else:
         mongo.db.products.update_one({"name": new_product["name"]}, {"$set": {"ID": new_product["ID"], "productionYear": new_product["productionYear"], "price": new_product["price"], "size": new_product["size"], "color": new_product["color"]}})
-        return "exists, Updated"
+    return jsonify(new_product)
 
     # END CODE HERE
 

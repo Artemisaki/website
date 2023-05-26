@@ -44,45 +44,31 @@
         </table>
       </div>
       <div class="myFrame2">
-<!--        <button onClick= "productFormOnSubmit" class="save-button" type="submit">Save</button>-->
-        <h5 class="Add"> Add a product</h5>
-        <form class="forms">
 
+          <h5 class="Add"> Add a product</h5><br><br>
+        <form class="forms" action="" method="post" id="nameform" >
           <div>
-            <label class="l1" for="name">Name</label>
-            <input class="i1" type="text" id="name">
-          </div>
-
-          <br>
-
+            <label  class="l1" for="fname">Name:</label>
+            <input class="i1" type="text" id="fname" Name="fname">
+          </div><br><br>
           <div>
-            <label class="l2" for="prod">Production Year</label>
-            <input class="i2" type="text" id="prod">
-          </div>
-          <br>
-
+            <label class="l2"for="fyear">Production Year:</label>
+           <input class="i2" type="text" id="fyear" name="fyear">
+          </div><br><br>
           <div>
-            <label class="l3" for="price">Price</label>
-            <input class="i3" type="text" id="price">
-          </div>
-          <br>
-
+             <label class="l3" for="fprice">Price:</label>
+           <input class="i3" type="text" id="fprice" name="fprice">
+          </div><br><br>
           <div>
-            <label class="l4" for="col">Color</label>
-            <input class="i4" type="text" id="col">
-          </div>
-          <br>
-
+             <label class="l4" for="fcolor">Color:</label>
+           <input class="i4" type="text" id="fcolor" name="fcolor">
+          </div><br><br>
           <div>
-            <label class="l5" for="size">Size</label>
-            <input class="i5" type="text" id="size">
-
-          </div>
-
+            <label class="l5" for="fsize">Size:</label>
+           <input class="i5" type="text" id="fsize" name="fsize">
+          </div><br><br>
         </form>
-          <button onClick= "productFormOnSubmit()" class="save-button" type="submit">Save</button>
-
-
+          <button id="myButton" class="save-button" type="submit" form="nameform" value="submit" onclick="productFormOnSubmit()">Save</button>
 
       </div>
 
