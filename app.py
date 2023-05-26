@@ -33,7 +33,7 @@ mongo.db.products.create_index([("name", TEXT)])
 
 
 # flask --app app --debug run
-
+@app.route("/")
 @app.route("/search", methods=["GET"])
 def search():
     # BEGIN CODE HERE
