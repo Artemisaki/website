@@ -1,18 +1,15 @@
 # BEGIN CODE HERE
 
 import math
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.by import By
-
 from operator import itemgetter
 from urllib import request
-from flask import request, jsonify
-
-from flask import Flask
+from flask import Flask, request, jsonify
 from flask_pymongo import PyMongo
 from flask_cors import CORS
 from pymongo import TEXT
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
 
 
 schema = {
@@ -33,36 +30,42 @@ mongo.db.products.create_index([("name", TEXT)])
 
 
 # flask --app app --debug run
-@app.route("/")
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
 @app.route("/search", methods=["GET"])
 def search():
     # BEGIN CODE HERE
+    #Getting the name from the search bar
     name = request.args.get("name")
     list1 = []
+    #making a list with the products with the name of the input of search bar
     for x in mongo.db.products.find({"$text": {"$search": f"\"{name}\""}}):
         list1.append(x)
-    newlist = sorted(list1,key=itemgetter('price'),reverse=True)
-    final_list=[]
+        #sorting the list by price
+    newlist = sorted(list1, key=itemgetter('price'), reverse=True)
+    final_list = []
     for x in newlist:
         final_list.append(str(x))
-
-    return final_list
+        print(x)
+    return jsonify(final_list)
     # END CODE HERE
 
 
 @app.route("/add-product", methods=["POST"])
 def add_product():
-
-    pass
     # BEGIN CODE HERE
-    new_product = request.get_json(force=True)
-    print(new_product)
+
+    new_product = request.json()
     exists = mongo.db.products.find_one({"name": new_product["name"]})
     if exists is None:
         mongo.db.products.insert_one(new_product)
+        return jsonify({" ": "added"})
     else:
         mongo.db.products.update_one({"name": new_product["name"]}, {"$set": {"ID": new_product["ID"], "productionYear": new_product["productionYear"], "price": new_product["price"], "size": new_product["size"], "color": new_product["color"]}})
-    return jsonify(new_product)
+        return jsonify({" ": "updated"})
 
     # END CODE HERE
 
@@ -90,7 +93,6 @@ def content_based_filtering():
 @app.route("/crawler", methods=["GET"])
 def crawler():
     # BEGIN CODE HERE
-
     semester = request.args.get("semester1")
     print(semester)
     try:
@@ -99,11 +101,13 @@ def crawler():
         options.headless = True
         driver = webdriver.Chrome(options=options)
         driver.get(url)
-
+        #taking the table with the specific semester
         str2 = "/html/body/div[2]/div[1]/div/div/div/div/div[2]/table["+semester+"]/tbody"
         print(str2)
         html = str((driver.find_element(By.XPATH, str2)).text)
+        #spliting the table into words
         html1 = html.split()
+        #making the wanted string and removing all the unwanted words
         string1 = ""
         subjects = []
         for x in html1:
@@ -122,4 +126,7 @@ def crawler():
         print("bad request")
 
     return subjects
-    # END CODE HERE
+
+
+
+#END CODE HERE
